@@ -17,7 +17,6 @@ public class AggregateOperations {
         printsFemaleNames(personStream.stream());
         printAverageAgeMales(personStream.stream());
         printSumAgeMales(personStream.stream());
-        printSumAgeMalesUsingReduce(personStream.stream());
     }
 
     private static void printsNameAll(Stream<Person> personStream) {
@@ -47,15 +46,6 @@ public class AggregateOperations {
                 .filter(p -> p.getGender() == MALE)
                 .mapToDouble(Person::getAge)
                 .sum();
-        out.println(sum);
-    }
-
-    private static void printSumAgeMalesUsingReduce(Stream<Person> stream) {
-        double sum = stream
-                .filter(p -> p.getGender() == MALE)
-                .map(Person::getAge)
-                .reduce(0,    // identity
-                        Integer::sum); // accumulator
         out.println(sum);
     }
 
