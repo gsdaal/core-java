@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static java.lang.System.out;
+import static model.Person.Sex.MALE;
 
 public class AggregateOperations {
 
@@ -32,6 +33,7 @@ public class AggregateOperations {
 
     private static void printAverageAgeMales(Stream<Person> personStream) {
         personStream
+                .filter(p -> p.getGender() == MALE)
                 .mapToInt(Person::getAge)
                 .average()
                 .ifPresentOrElse(out::println,
