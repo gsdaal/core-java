@@ -16,6 +16,7 @@ public class AggregateOperations {
         printsNameAll(personStream.stream());
         printsFemaleNames(personStream.stream());
         printAverageAgeMales(personStream.stream());
+        printSumAgeMales(personStream.stream());
     }
 
     private static void printsNameAll(Stream<Person> personStream) {
@@ -38,6 +39,14 @@ public class AggregateOperations {
                 .average()
                 .ifPresentOrElse(out::println,
                         () -> out.println("No data"));
+    }
+
+    private static void printSumAgeMales(Stream<Person> stream) {
+        double sum = stream
+                .filter(p -> p.getGender() == MALE)
+                .mapToDouble(Person::getAge)
+                .sum();
+        out.println(sum);
     }
 
 }
