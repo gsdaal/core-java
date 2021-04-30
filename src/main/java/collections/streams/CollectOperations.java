@@ -18,6 +18,7 @@ public class CollectOperations {
         printAgeMalesUsingCollect(personStream.stream());
         printGroupAgeMalesUsingCollect(personStream.stream());
         totalAgeByGender(personStream.stream());
+        averageAgeByGender(personStream.stream());
     }
 
     private static void printAgeMalesUsingCollect(Stream<Person> stream) {
@@ -49,6 +50,19 @@ public class CollectOperations {
                                 )
                         )
                 );
-        collect.forEach( (sex, totalAge) -> out.println(sex + ":" + totalAge));
+        collect.forEach((sex, totalAge) -> out.println(sex + ":" + totalAge));
+    }
+
+    private static void averageAgeByGender(Stream<Person> stream) {
+        Map<Person.Sex, Double> collect = stream
+                .collect(
+                        Collectors.groupingBy(
+                                Person::getGender,
+                                Collectors.averagingInt(
+                                        Person::getAge
+                                )
+                        )
+                );
+        collect.forEach((sex, averageAge) -> out.println(sex + ":" + averageAge));
     }
 }
