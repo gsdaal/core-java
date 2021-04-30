@@ -14,10 +14,10 @@ public class CollectOperations {
 
     public static void main(String[] args) {
         List<Person> personStream = PersonService.personData();
-        printSumAgeMalesUsingReduce(personStream.stream());
+        printAgeMalesUsingCollect(personStream.stream());
     }
 
-    private static void printSumAgeMalesUsingReduce(Stream<Person> stream) {
+    private static void printAgeMalesUsingCollect(Stream<Person> stream) {
         stream
                 .filter(p -> p.getGender() == MALE)
                 .map(Person::getAge)
