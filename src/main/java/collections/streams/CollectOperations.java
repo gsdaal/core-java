@@ -1,7 +1,7 @@
 package collections.streams;
 
-import model.Person;
-import model.PersonService;
+import collections.streams.model.Person;
+import collections.streams.model.PersonService;
 
 import java.util.List;
 import java.util.Map;
@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.lang.System.out;
-import static model.Person.Sex.MALE;
+import static collections.streams.model.Person.Sex.MALE;
 
 public class CollectOperations {
 

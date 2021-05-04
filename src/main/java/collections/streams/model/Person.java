@@ -1,4 +1,4 @@
-package model;
+package collections.streams.model;
 
 import lombok.Value;
 
