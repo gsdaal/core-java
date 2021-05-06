@@ -9,7 +9,7 @@ public class CountBinary {
         var n = 439;
         var binaryString = Integer.toBinaryString(n);
 
-        CountBinary cb = new CountBinary();
+        var cb = new CountBinary();
 
         binaryString.chars().forEach(
                 i -> {
