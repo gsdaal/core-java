@@ -1,5 +1,8 @@
 package problems.basic.binary;
 
+/*
+https://www.hackerrank.com/challenges/30-binary-numbers
+ */
 public class CountBinary {
 
     int maxConsecutiveOnes = 0;
