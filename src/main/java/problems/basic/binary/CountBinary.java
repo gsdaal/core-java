@@ -1,9 +1,11 @@
 package problems.basic.binary;
 
+import java.util.function.IntConsumer;
+
 /*
 https://www.hackerrank.com/challenges/30-binary-numbers
  */
-public class CountBinary {
+public class CountBinary implements IntConsumer {
 
     int maxConsecutiveOnes = 0;
     int currentConsecutiveOnes = 0;
@@ -14,24 +16,26 @@ public class CountBinary {
 
         var cb = new CountBinary();
 
-        binaryString.chars().forEach(
-                i -> {
-                    if (i == '1') {
-                        cb.currentConsecutiveOnes++;
-                    }
-
-                    if (i == '0') {
-                        // reset
-                        cb.currentConsecutiveOnes = 0;
-                    }
-
-                    if (cb.currentConsecutiveOnes > cb.maxConsecutiveOnes) {
-                        cb.maxConsecutiveOnes = cb.currentConsecutiveOnes;
-                    }
-                }
-        );
+        binaryString.chars().forEach(cb);
 
         System.out.println(cb.maxConsecutiveOnes);
+
+    }
+
+    @Override
+    public void accept(int i) {
+        if (i == '1') {
+            currentConsecutiveOnes++;
+        }
+
+        if (i == '0') {
+            // reset
+            currentConsecutiveOnes = 0;
+        }
+
+        if (currentConsecutiveOnes > maxConsecutiveOnes) {
+            maxConsecutiveOnes = currentConsecutiveOnes;
+        }
 
     }
 }
