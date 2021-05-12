@@ -6,8 +6,8 @@ import collections.streams.model.PersonService;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static java.lang.System.out;
 import static collections.streams.model.Person.Sex.MALE;
+import static java.lang.System.out;
 
 public class ReduceOperations {
 
