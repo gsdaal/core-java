@@ -17,7 +17,7 @@ public class ReduceOperations {
     }
 
     private static void printSumAgeMalesUsingReduce(Stream<Person> stream) {
-        double sum = stream
+        var sum = stream
                 .filter(p -> p.getGender() == MALE)
                 .map(Person::getAge)
                 .reduce(0,    // identity

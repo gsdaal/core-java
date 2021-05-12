@@ -12,7 +12,7 @@ import static collections.streams.model.Person.Sex.MALE;
 public class AggregateOperations {
 
     public static void main(String[] args) {
-        List<Person> personStream = PersonService.personData();
+        var personStream = PersonService.personData();
         printsNameAll(personStream.stream());
         printsFemaleNames(personStream.stream());
         printAverageAgeMales(personStream.stream());
@@ -42,7 +42,7 @@ public class AggregateOperations {
     }
 
     private static void printSumAgeMales(Stream<Person> stream) {
-        double sum = stream
+        var sum = stream
                 .filter(p -> p.getGender() == MALE)
                 .mapToDouble(Person::getAge)
                 .sum();

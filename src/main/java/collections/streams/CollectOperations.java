@@ -14,7 +14,7 @@ import static collections.streams.model.Person.Sex.MALE;
 public class CollectOperations {
 
     public static void main(String[] args) {
-        List<Person> personStream = PersonService.personData();
+        var personStream = PersonService.personData();
         printAgeMalesUsingCollect(personStream.stream());
         printGroupAgeMalesUsingCollect(personStream.stream());
         totalAgeByGender(personStream.stream());
@@ -30,7 +30,7 @@ public class CollectOperations {
     }
 
     private static void printGroupAgeMalesUsingCollect(Stream<Person> stream) {
-        Map<Person.Sex, List<Person>> collect = stream
+        var collect = stream
                 .collect(Collectors.groupingBy(Person::getGender));// Returns a Collector that accumulates the input elements into a new List.
 
         collect.forEach(
@@ -39,7 +39,7 @@ public class CollectOperations {
     }
 
     private static void totalAgeByGender(Stream<Person> stream) {
-        Map<Person.Sex, Integer> collect = stream
+        var collect = stream
                 .collect(
                         Collectors.groupingBy(
                                 Person::getGender,
@@ -54,7 +54,7 @@ public class CollectOperations {
     }
 
     private static void averageAgeByGender(Stream<Person> stream) {
-        Map<Person.Sex, Double> collect = stream
+        var collect = stream
                 .collect(
                         Collectors.groupingBy(
                                 Person::getGender,

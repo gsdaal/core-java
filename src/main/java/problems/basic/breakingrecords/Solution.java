@@ -53,9 +53,9 @@ class Result {
 
 public class Solution {
     public static void main(String[] args) {
-        List<Integer> scores = Stream.of(10, 5, 20, 20, 4, 5, 2, 25, 1).collect(toList());
+        var scores = Stream.of(10, 5, 20, 20, 4, 5, 2, 25, 1).collect(toList());
 
-        List<Integer> result = Result.breakingRecords(scores);
+        var result = Result.breakingRecords(scores);
 
         System.out.println(result);
     }
